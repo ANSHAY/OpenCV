@@ -1,11 +1,13 @@
-#include<opencv4/opencv2/opencv.hpp>
-#include<iostream>
+#include <opencv4/opencv2/opencv.hpp>
+#include <iostream>
 #include <string>
 
 int main(int argc, char** argv){
     cv::VideoCapture cap;
     if(argc==1){
-        std::cout<<"\nNot enough arguments provided!\n";
+        std::cout<<"\nNot enough arguments provided!\n"
+                    "Usage: log_polar (optional)<input_file_path> "
+                    "<output_file_path>\n";
         exit(0);
     }
     else if(argc==2){
@@ -36,6 +38,6 @@ int main(int argc, char** argv){
         if(c==27) break;
     }
     writer.release();
-    std::cout<<"\nCapture complete";
+    std::cout<<"\nCapture complete\n";
     return 0;
 }

@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.0)
 
-project(log_polar)
+project(capture_and_store)
 
 set(SOURCE src/${PROJECT_NAME}.cpp)
 find_package(OpenCV REQUIRED)
