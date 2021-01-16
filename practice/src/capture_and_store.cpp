@@ -38,7 +38,7 @@ int main(int argc, char** argv){
         return -1;
     }
     // VideoWriter
-    cv::Size size((int)cv::CAP_PROP_FRAME_WIDTH/2, (int)cv::CAP_PROP_FRAME_HEIGHT/2);
+    cv::Size size = frame.size()/2;
     double fps = 25.0;
     writer.open(argv[1], cv::VideoWriter::fourcc('M','J','P','G'), fps, size);
     if (!writer.isOpened()) {

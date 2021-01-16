@@ -1,3 +1,9 @@
+// This program captures frames from camera and stores
+// them in a file in log polar form
+//
+// author: Anshay
+// Date: 06/01/2021
+
 #include <opencv4/opencv2/opencv.hpp>
 #include <iostream>
 #include <string>
@@ -6,25 +12,25 @@ int main(int argc, char** argv){
     cv::VideoCapture cap;
     if(argc==1){
         std::cout<<"\nNot enough arguments provided!\n"
-                    "Usage: log_polar (optional)<input_file_path> "
-                    "<output_file_path>\n";
-        exit(0);
+                    "Usage: log_polar <output_file_path> "
+                    "(optional)<input_file_path>\n";
+        return 1;
     }
-    else if(argc==2){
+    if(argc==2){
         cap.open(0);
     }
     else{
-        cap.open(std::string(argv[1]));
+        cap.open(std::string(argv[2]));
     }
     if(!cap.isOpened()){
-        std::cout<<"\nCould not open file/camera";
+        std::cout<<"\nCould not open file/camera\n";
         exit(0);
     }
     double fps = cap.get(cv::CAP_PROP_FPS);
-    cv::Size size((int)cv::CAP_PROP_FRAME_WIDTH, (int)cv::CAP_PROP_FRAME_HEIGHT);
+    cv::Size size((int)cap.get(cv::CAP_PROP_FRAME_WIDTH), (int)cap.get(cv::CAP_PROP_FRAME_HEIGHT));
 
     cv::VideoWriter writer;
-    writer.open(argv[argc-1], cv::VideoWriter::fourcc('M','J','P','G'), fps, size);
+    writer.open(argv[1], cv::VideoWriter::fourcc('M','J','P','G'), fps, size);
 
     std::string WINDOW_NAME = "Log Polar";
     cv::namedWindow(WINDOW_NAME);

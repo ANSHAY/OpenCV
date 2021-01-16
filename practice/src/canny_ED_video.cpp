@@ -1,3 +1,11 @@
+// This program detects edges in a video
+// with Canny Edge detector and plays the
+// edge marked video
+// with seek and pause features
+//
+// author: Anshay
+// Date: 06/01/2021
+
 #include <opencv4/opencv2/highgui/highgui.hpp>
 #include <opencv4/opencv2/imgproc/imgproc.hpp>
 #include <string>

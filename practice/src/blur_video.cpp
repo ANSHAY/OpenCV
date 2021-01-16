@@ -1,3 +1,10 @@
+// This program plays back a video file
+// with seek and pause features and blurs
+// the video with Gaussian blur
+//
+// author: Anshay
+// Date: 06/01/2021
+
 #include <opencv4/opencv2/highgui/highgui.hpp>
 #include <opencv4/opencv2/imgproc/imgproc.hpp>
 #include <string>
