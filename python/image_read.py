@@ -12,6 +12,7 @@ def image_read(filepath):
     cv2.imshow("preview", img)
     print("Pixel at 3,5:",img[3, 5])
     cv2.waitKey(0)
+    cv2.destroyAllWindows()
     return
 
 if __name__ == "__main__":
