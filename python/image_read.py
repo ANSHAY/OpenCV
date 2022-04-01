@@ -1,5 +1,7 @@
+from ast import parse
 import cv2
 import sys
+import argparse
 
 def image_read(filepath):
     img = cv2.imread(filepath)
@@ -13,12 +15,11 @@ def image_read(filepath):
     return
 
 if __name__ == "__main__":
-    if(len(sys.argv)!=2):
-        print("Incorrect usage! Correct usage is python image_read.py <file_path>")
-        exit()
-    print ("File format: "+sys.argv[1][-4:])
-    if(sys.argv[1][-4:] != ".png") and (sys.argv[1][-4:] != ".jpg"):
+    parser = argparse.ArgumentParser()
+    parser.add_argument("filepath", help="Path of png image to read and show")
+    args = parser.parse_args()
+    if(args.filepath[-4:] != ".png") and (args.filepath[-4:] != ".jpg"):
         print("Need a png or jpg image")
         exit()
-    image_read(sys.argv[1])
+    image_read(args.filepath)
     
